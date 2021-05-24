@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">NineCodingChallenge</string>
+    <string name="genre">Genre</string>
+    <string name="country">Country</string>
+    <string name="tv_channel">TV Channel</string>
+    <string name="language">Language</string>
+    <string name="episode_count">Episode Count</string>
+    <string name="description">Description</string>
+    <string name="retry">Retry</string>
+    <string name="load_failed">Unable to load from the server.</string>
 </resources>

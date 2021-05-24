@@ -3,8 +3,13 @@
     //padding
     <dimen name="rcitem_show_padding">10dp</dimen>
     <dimen name="rcitem_show_text_layout_padding">5dp</dimen>
+    <dimen name="show_details_tablerow_padding">5dp</dimen>
 
     //font sizes
     <dimen name="rcitem_show_title_font_size">18sp</dimen>
+
+    //view sizes
+    <dimen name="rcitem_image_size">100dp</dimen>
+    <dimen name="show_details_table_text_padding">10dp</dimen>
 
 </resources>

@@ -1,54 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/rcitem_show_padding">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imgRcItemShow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+    <data>
+        <variable name="payload" type="com.subzoron.ninecodingchallenge.datamodels.Payload"/>
+        <import type="android.view.View" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:padding="@dimen/rcitem_show_text_layout_padding"
-        app:layout_constraintBottom_toBottomOf="@+id/imgRcItemShow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgRcItemShow"
-        app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/layoutRcItemShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/rcitem_show_padding">
 
-        <TextView
-            android:id="@+id/txtRcItemShowTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="title"
-            android:textSize="@dimen/rcitem_show_title_font_size"
+        <ImageView
+            android:id="@+id/imgRcItemShow"
+            android:layout_width="@dimen/rcitem_image_size"
+            android:layout_height="@dimen/rcitem_image_size"
+            app:imageUrl='@{payload.image.showImage}'
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/show_placeholder" />
 
-        <TextView
-            android:id="@+id/txtRcItemShowGenre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="genre"
-            app:layout_constraintStart_toStartOf="@+id/txtRcItemShowTitle"
-            app:layout_constraintTop_toBottomOf="@+id/txtRcItemShowTitle" />
-
-        <TextView
-            android:id="@+id/txtRcItemShowDescription"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="description"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="@dimen/rcitem_show_text_layout_padding"
+            app:layout_constraintBottom_toBottomOf="@+id/imgRcItemShow"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtRcItemShowGenre" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toEndOf="@+id/imgRcItemShow"
+            app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/txtRcItemShowTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{payload.title}"
+                android:textSize="@dimen/rcitem_show_title_font_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtRcItemShowGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{payload.genre}"
+                android:textColor="@color/grey"
+                app:layout_constraintStart_toStartOf="@+id/txtRcItemShowTitle"
+                app:layout_constraintTop_toBottomOf="@+id/txtRcItemShowTitle" />
+
+            <TextView
+                android:id="@+id/txtRcItemShowDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{payload.description}"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtRcItemShowGenre" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
